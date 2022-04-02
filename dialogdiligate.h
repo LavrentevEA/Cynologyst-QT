@@ -1,0 +1,4 @@
+#ifndef DIALOGDILIGATE_H
+#define DIALOGDILIGATE_H
+
+#endif // DIALOGDILIGATE_H
