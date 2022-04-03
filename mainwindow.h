@@ -4,12 +4,13 @@
 #include <QMainWindow>
 #include "mymodel.h"
 #include "QTableView"
+
 namespace Ui {
-class MainWindow;
+    class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow{
+
     Q_OBJECT
 
 public:

@@ -1,19 +1,22 @@
 #include "editdogdialog.h"
 #include "dog.h"
-EditDogDialog::EditDogDialog(QWidget* pwgt): QDialog(pwgt)
-{
+
+EditDogDialog::EditDogDialog(QWidget* pwgt): QDialog(pwgt) {
     editID = new QLineEdit();
     editName = new QLineEdit();
     editAge = new QLineEdit();
     editBreed = new QComboBox();
+
     QStringList breeds = Dog::GetBreeds();
-    foreach  (QString br, breeds )
-    {
+
+    foreach  (QString br, breeds) {
         editBreed->addItem(br);
     }
+
     editOwner = new QLineEdit();
 
     QGridLayout* mainLayout = new QGridLayout;
+
     mainLayout->addWidget(new QLabel("ID"),1,1);
     mainLayout->addWidget(editID,1,2);
     mainLayout->addWidget(new QLabel("Кличка"),2,1);
@@ -25,7 +28,6 @@ EditDogDialog::EditDogDialog(QWidget* pwgt): QDialog(pwgt)
     mainLayout->addWidget(new QLabel("Хозяин"),5,1);
     mainLayout->addWidget(editOwner,5,2);
 
-
     QPushButton* btnOk = new QPushButton("&ОК");
 
      mainLayout->addWidget(btnOk,6,1,1,2);
@@ -35,12 +37,10 @@ EditDogDialog::EditDogDialog(QWidget* pwgt): QDialog(pwgt)
     this->setLayout(mainLayout);
     this->setWindowTitle("Данные о собаке");
 
-
-
     int gx = 100;
     int gy = 100;
-    if (pwgt!=nullptr)
-    {
+
+    if (pwgt!=nullptr) {
         gx = pwgt->geometry().x();
         gy = pwgt->geometry().y();
 
@@ -48,37 +48,32 @@ EditDogDialog::EditDogDialog(QWidget* pwgt): QDialog(pwgt)
     this->setGeometry(gx+10,gy+10,300,150);
 }
 
-QString EditDogDialog::id() const
-{
+QString EditDogDialog::id() const {
     return editID->text();
 }
-QString EditDogDialog::name() const
-{
+QString EditDogDialog::name() const {
     return editName->text();
 }
-QString EditDogDialog::age() const
-{
+QString EditDogDialog::age() const {
     return editAge->text();
 }
-QString EditDogDialog::breed() const
-{
+QString EditDogDialog::breed() const {
     return editBreed->currentText();
 }
-QString EditDogDialog::owner() const
-{
+QString EditDogDialog::owner() const {
     return editOwner->text();
 }
 
-void EditDogDialog::SetUpDialog(QString id, QString name,QString age, QString breed, QString owner)
-{
+void EditDogDialog::SetUpDialog(QString id, QString name,QString age, QString breed, QString owner) {
     editID->setText(id);
     editName->setText(name);
     editAge->setText(age);
 
     int ind = editBreed->findText(breed);
-    if (ind>=0)
-    {
+
+    if (ind>=0) {
         editBreed->setCurrentIndex(ind);
     }
+
     editOwner->setText(owner);
 }

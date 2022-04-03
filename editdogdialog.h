@@ -5,9 +5,9 @@
 #include <QtWidgets>
 #include "dog.h"
 
-class EditDogDialog : public QDialog
-{
-  Q_OBJECT
+class EditDogDialog : public QDialog{
+
+    Q_OBJECT
 
 private:
     QLineEdit* editID;
@@ -25,6 +25,8 @@ public:
     QString age() const;
     QString breed() const;
     QString owner() const;
+
     void SetUpDialog(QString id, QString name,QString age, QString breed, QString owner);
 };
+
 #endif // EDITDOGDIALOG_H
